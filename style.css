@@ -26,10 +26,6 @@
     margin: 1em;
 }
 
-/* body {
-    margin: 0;
-    background: gray;
-} */
 
 .video-section {
     display: grid;
@@ -140,10 +136,6 @@
     
 }
 
-.category-section {
-    display: flex;
-    overflow-x: auto;
-}
 
 .category {
     margin-right: 1rem;
@@ -157,6 +149,20 @@
     font-size: inherit;
     cursor: pointer;
     transition: background-color 150ms;
+}
+
+.category-section {
+    display: flex;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+}
+
+.snaps-inline {
+    scroll-snap-type: inline mandatory;
+}
+
+.snaps-inline > * {
+    scroll-snap-align: start;
 }
 
 .category:hover {
@@ -187,7 +193,7 @@
 }
 
 @media (max-width:600px) {
-    .search-input, .search-btn {
+    .search-bar {
         display: none;
     }
 
