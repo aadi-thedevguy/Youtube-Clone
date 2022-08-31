@@ -2,14 +2,11 @@
   "name": "youtube-clone",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://monztercoder.github.io/Youtube-Clone/",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@emotion/react": "^11.10.0",
@@ -17,7 +14,6 @@
     "@mui/icons-material": "^5.10.2",
     "@mui/material": "^5.10.2",
     "axios": "^0.27.2",
-    "gh-pages": "^4.0.0",
     "preact": "^10.10.1",
     "react-player": "^2.10.1",
     "react-router-dom": "^6.3.0"
