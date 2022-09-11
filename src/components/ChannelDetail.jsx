@@ -22,7 +22,6 @@ const ChannelDetail = () => {
   useEffect(() => {
     fetchResults()
   }, [id])
-  console.log(channelDetail,videos)
   
 
   return (

@@ -14,11 +14,10 @@ const SearchFeed = () => {
     fetchFromAPI(`search?part=snippet&q=${searchTerm}`)
       .then((data) => setVideos(data.items))
     }, [searchTerm]);
-  
 
   return (
-    <Box p={2} sx={{overflowY : 'auto', height: '90vh', flex : 2}}>
-      <Typography variant='h4' fontWeight="bold" mb={2} sx={{color : 'white'}}>
+    <Box p={2} sx={{overflowY : 'auto', height: '95%', flex : 2}}>
+      <Typography variant='h4' fontWeight="bold" mb={2} sx={{color : '#fffff'}}>
         Search Results for : <span style={{color : '#FF0000'}}>{searchTerm} </span>Videos
       </Typography>
       <Videos videos={videos} />
