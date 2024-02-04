@@ -1,10 +1,10 @@
 import { Box, Typography, Alert } from "@mui/material";
-import { useParams } from "react-router-dom";
+import { useParams } from "@tanstack/react-router";
 import { Videos, Loader } from "./";
 import { fetchFromAPI } from "@/utils/fetchFromAPI";
 import { useQuery } from "@tanstack/react-query";
 const SearchFeed = () => {
-  const { searchTerm } = useParams();
+  const {searchTerm} = useParams({from : "/search/$searchTerm"});
 
   const { isPending, isError, error, data } = useQuery({
     queryKey: ["channels", searchTerm],
@@ -29,7 +29,7 @@ const SearchFeed = () => {
         variant="h4"
         fontWeight="bold"
         mb={2}
-        sx={{ color: "white" }}
+        sx={{ color: "#ffffff" }}
       >
         Search Results for :{" "}
         <span style={{ color: "#FF0000" }}>{searchTerm} </span>Videos

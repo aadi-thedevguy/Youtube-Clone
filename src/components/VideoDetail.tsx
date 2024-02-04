@@ -1,13 +1,14 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams } from "@tanstack/react-router";
 import ReactPlayer from "react-player/youtube";
 import { Typography, Box, Stack, Alert } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { Videos, Loader } from "./";
 import { fetchFromAPI } from "@/utils/fetchFromAPI";
 import { useQuery } from "@tanstack/react-query";
+import { Video } from "@/types";
 
 const VideoDetail = () => {
-  const { id } = useParams();
+  const { id } = useParams({ from: "/video/$id" });
 
   const { data: videoData } = useQuery({
     queryKey: ["videos", id],
@@ -31,8 +32,8 @@ const VideoDetail = () => {
       </Alert>
     );
   }
-  const videoDetail = data && data.items && data.items[0];
-  const videos = videoData && videoData.items;
+  const videoDetail: Video = data && data.items && data.items[0];
+  const videos : Video[] = videoData && videoData.items;
 
   if (!videoDetail?.snippet) return <Loader />;
 
@@ -64,7 +65,10 @@ const VideoDetail = () => {
               py={1}
               px={2}
             >
-              <Link to={`/channel/${channelId}`}>
+              <Link
+                to="/channel/$channelId"
+                params={{ channelId: channelId ?? "" }}
+              >
                 <Typography variant="h6" color="#fff">
                   {channelTitle}
                   <CheckCircleIcon

@@ -1,5 +1,5 @@
 {
-  "name": "youtube-clone-ts",
+  "name": "new",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -15,10 +15,10 @@
     "@mui/material": "^5.15.7",
     "@tanstack/react-query": "^5.18.1",
     "@tanstack/react-query-devtools": "^5.18.1",
+    "@tanstack/router-devtools": "^1.15.10",
     "axios": "^0.27.2",
     "preact": "^10.19.3",
-    "react-player": "^2.14.1",
-    "react-router-dom": "^6.3.0"
+    "react-player": "^2.14.1"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.7.0",

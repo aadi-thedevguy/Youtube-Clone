@@ -1,6 +1,6 @@
 import { Box, CardContent, CardMedia, Typography } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 import { demoProfilePicture } from "@/utils/constants";
 import { Video } from "@/types";
 
@@ -21,7 +21,12 @@ const ChannelCard = ({ channelDetail, marginTop }: ChannelCardProps) => {
         marginTop: marginTop ?? 0,
       }}
     >
-      <Link to={`/channel/${channelDetail?.snippet?.channelId || channelDetail.id}`}>
+      <Link
+        to="/channel/$channelId"
+        params={{
+          channelId: channelDetail?.snippet?.channelId || channelDetail.id.channelId,
+        }}
+      >
         <CardContent
           sx={{
             display: "flex",

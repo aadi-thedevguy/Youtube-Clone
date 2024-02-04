@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams } from "@tanstack/react-router";
 import { Box, Alert } from "@mui/material";
 
 import { Videos, ChannelCard, Loader } from "./";
@@ -6,18 +6,20 @@ import { fetchFromAPI } from "@/utils/fetchFromAPI";
 import { useQuery } from "@tanstack/react-query";
 
 const ChannelDetail = () => {
-  const { id } = useParams();
+  const { channelId } = useParams({ from: "/channel/$channelId" });
 
   const { data: videoData } = useQuery({
-    queryKey: ["videos", id],
+    queryKey: ["videos", channelId],
     queryFn: async () =>
-      await fetchFromAPI(`search?channelId=${id}&part=snippet%2Cid&order=date`),
+      await fetchFromAPI(
+        `search?channelId=${channelId}&part=snippet%2Cid&order=date`
+      ),
   });
   const { isPending, isError, error, data } = useQuery({
-    queryKey: ["channels", id],
+    queryKey: ["channels", channelId],
     queryFn: async () => {
-      return await fetchFromAPI(`channels?part=snippet&id=${id}`)
-    } 
+      return await fetchFromAPI(`channels?part=snippet&id=${channelId}`);
+    },
   });
 
   if (isPending) return <Loader />;

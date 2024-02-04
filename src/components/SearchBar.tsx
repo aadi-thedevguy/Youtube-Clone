@@ -1,18 +1,17 @@
 import { useState } from "preact/hooks";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "@tanstack/react-router";
 import { Paper, IconButton } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const navigate = useNavigate();
+  const navigate = useNavigate({ from: "/" });
 
   const onhandleSubmit = (e: SubmitEvent) => {
     e.preventDefault();
 
     if (searchTerm) {
-      navigate(`/search/${searchTerm}`);
-
+      navigate({ to: "/search/$searchTerm", params: { searchTerm } });
       setSearchTerm("");
     }
   };
